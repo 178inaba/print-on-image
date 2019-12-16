@@ -1,9 +1,12 @@
-.PHONY: all golangci-lint test install-golangci-lint
+.PHONY: all golangci-lint golangci-lint-fix test install-golangci-lint
 
-all: golangci-lint test
+all: golangci-lint-fix test
 
 golangci-lint:
 	golangci-lint run
+
+golangci-lint-fix:
+	golangci-lint run --fix
 
 test:
 	go test -race -count 1 -cover
