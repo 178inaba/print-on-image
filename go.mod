@@ -1,4 +1,4 @@
-module github.com/178inaba/binary-test-example
+module github.com/178inaba/print-on-image
 
 go 1.13
 
