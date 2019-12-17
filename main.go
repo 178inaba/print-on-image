@@ -16,11 +16,6 @@ import (
 	"golang.org/x/image/math/fixed"
 )
 
-const (
-	fontSize = 20
-	dpi      = 350
-)
-
 func main() {
 	var drawValue, outputFilepath string
 	flag.StringVar(&drawValue, "d", "", "Draw value.")
@@ -93,7 +88,7 @@ func drawStringToImage(baseImg image.Image, drawFont *truetype.Font, drawValue s
 	draw.Draw(drawImg, drawImg.Bounds(), baseImg, r.Min, draw.Src)
 
 	d := &font.Drawer{Dst: drawImg, Src: image.Black}
-	d.Face = truetype.NewFace(drawFont, &truetype.Options{Size: fontSize, DPI: dpi})
+	d.Face = truetype.NewFace(drawFont, &truetype.Options{Size: 20, DPI: 350})
 	d.Dot = fixed.Point26_6{
 		X: (fixed.I(r.Dx()) - d.MeasureString(drawValue)) / 2,
 		Y: fixed.I(r.Dy() / 2),
